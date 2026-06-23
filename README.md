@@ -1,4 +1,5 @@
 # 🚀 edgetunnel 2.1
+
 ![后台页面](./img.png)
 
 [![Stars](https://img.shields.io/github/stars/cmliu/edgetunnel?style=flat-square&logo=github)](https://github.com/cmliu/edgetunnel/stargazers)
@@ -29,10 +30,11 @@
 ---
 
 ## 💡 快速部署
->[!TIP]
+
+> [!TIP]
 > 📖 **详尽图文教程**：[edgetunnel 部署指南](https://cmliussss.com/p/edt2/)
 
->[!WARNING]
+> [!WARNING]
 > ⚠️ **Error 1101问题**：[视频解析](https://www.youtube.com/watch?v=r4uVTEJptdE)
 
 ### ⚙️ Workers 部署
@@ -50,7 +52,7 @@
    - 在 `绑定`选项卡中选择 `添加绑定 +` > `KV 命名空间` > `添加绑定`，然后选择一个已有的命名空间或创建一个新的命名空间进行绑定。
    - `变量名称`填写**KV**，然后点击 `添加绑定`即可。
 
-3. 给 Workers绑定 自定义域： 
+3. 给 Workers绑定 自定义域：
    - 在 workers控制台的 `触发器`选项卡，下方点击 `添加自定义域`。
    - 填入你已转入 CF 域名解析服务的次级域名，例如:`vless.google.com`后 点击`添加自定义域`，等待证书生效即可。
 
@@ -80,7 +82,6 @@
    - 填入你的自定义次级域名，注意不要使用你的根域名，例如：
      您分配到的域名是 `fuck.cloudns.biz`，则添加自定义域填入 `lizi.fuck.cloudns.biz`即可；
    - 按照 CF 的要求将返回你的域名DNS服务商，添加 该自定义域 `lizi`的 CNAME记录 `edgetunnel.pages.dev` 后，点击 `激活域`即可。
-   
 4. 访问后台：
    - 访问 `https://lizi.fuck.cloudns.biz/admin` 输入管理员密码即可登录后台。
 
@@ -116,74 +117,93 @@
 
 ## 🔑 环境变量说明
 
-| 变量名 | 必填 | 示例 | 详细备注 |
-| :--- | :---: | :--- | :--- |
-| **ADMIN** | ✅ | `123456` | 后台管理面板登录密码 |
-| **KEY** | ❌ | `CMLiussss` | 快速订阅路径密钥，访问 `/CMLiussss` 即可快速获取节点 |
-| **UUID** | ❌ | `90cd4a77-141a-43c9-991b-08263cfe9c10` | 强制固定UUID，只支持**UUIDv4**标准格式 |
-| **PROXYIP** | ❌ | `proxyip.cmliussss.net:443` | 全局自定义反代 IP  |
-| **URL** | ❌ | `https://cloudflare-error-page-3th.pages.dev` | 默认主页伪装地址（可填写网页 URL 或 `1101`） |
-| **GO2SOCKS5** | ❌ | `blog.cmliussss.com`,`*.ip111.cn`,`*google.com` | 强制走 SOCKS5 的名单 (`*` 为全局，域名用逗号分隔) |
-| **DEBUG** | ❌ | `1`或`true` | **开发者模式**，默认关闭调试日志功能（console.log），设置`1`或`true`则开启调试日志功能 |
-| **OFF_LOG** | ❌ | `1`或`true` | 默认开启日志记录功能，设置`1`或`true`则关闭日志记录功能 |
-| **BEST_SUB** | ❌ | `1`或`true` | 默认关闭作为**优选订阅生成器**的功能，设置`1`或`true`则开启该功能 |
-| **PRELOAD_RACE_DIAL** | ❌ | `1`或`true` | 默认关闭作为**预加载竞速拨号**的功能，设置`1`或`true`则开启该功能 |
+| 变量名                | 必填 | 示例                                            | 详细备注                                                                               |
+| :-------------------- | :--: | :---------------------------------------------- | :------------------------------------------------------------------------------------- |
+| **ADMIN**             |  ✅  | `123456`                                        | 后台管理面板登录密码                                                                   |
+| **KEY**               |  ❌  | `CMLiussss`                                     | 快速订阅路径密钥，访问 `/CMLiussss` 即可快速获取节点                                   |
+| **UUID**              |  ❌  | `90cd4a77-141a-43c9-991b-08263cfe9c10`          | 强制固定UUID，只支持**UUIDv4**标准格式                                                 |
+| **PROXYIP**           |  ❌  | `proxyip.cmliussss.net:443`                     | 全局自定义反代 IP                                                                      |
+| **URL**               |  ❌  | `https://cloudflare-error-page-3th.pages.dev`   | 默认主页伪装地址（可填写网页 URL 或 `1101`）                                           |
+| **GO2SOCKS5**         |  ❌  | `blog.cmliussss.com`,`*.ip111.cn`,`*google.com` | 强制走 SOCKS5 的名单 (`*` 为全局，域名用逗号分隔)                                      |
+| **DEBUG**             |  ❌  | `1`或`true`                                     | **开发者模式**，默认关闭调试日志功能（console.log），设置`1`或`true`则开启调试日志功能 |
+| **OFF_LOG**           |  ❌  | `1`或`true`                                     | 默认开启日志记录功能，设置`1`或`true`则关闭日志记录功能                                |
+| **BEST_SUB**          |  ❌  | `1`或`true`                                     | 默认关闭作为**优选订阅生成器**的功能，设置`1`或`true`则开启该功能                      |
+| **PRELOAD_RACE_DIAL** |  ❌  | `1`或`true`                                     | 默认关闭作为**预加载竞速拨号**的功能，设置`1`或`true`则开启该功能                      |
 
 ---
 
 ## 🔧 高级实用技巧
+
 如需修改 **订阅地址里的TOKEN** 和 **用于节点验证的UUID** ，可通过修改变量
+
 1. 修改`ADMIN`或`KEY`变量的值，可以随机修改 **订阅地址里的TOKEN** 和 **用于节点验证的UUID**
 2. 设置`UUID`变量可以强制固定 **订阅地址里的TOKEN** 和 **用于节点验证的UUID**，注意必须是**UUIDv4**标准格式，否则会导致节点无法使用。
 
 本工具支持通过 **PATH路径** 动态切换底层代理方案：
 
 - 指定 `PROXYIP` 案例
-   ```url
-   /proxyip=proxyip.cmliussss.net
-   /?proxyip=proxyip.cmliussss.net
-   ```
+
+  ```url
+  /proxyip=proxyip.cmliussss.net
+  /?proxyip=proxyip.cmliussss.net
+  ```
 
 - 指定 `SOCKS5` 案例
-   ```url
-   /socks5=user:password@127.0.0.1:1080
-   /?socks5=user:password@127.0.0.1:1080
-   /socks://dXNlcjpwYXNzd29yZA==@127.0.0.1:1080 (默认激活全局SOCKS5)
-   /socks5://user:password@127.0.0.1:1080 (默认激活全局SOCKS5)
-   ```
+
+  ```url
+  /socks5=user:password@127.0.0.1:1080
+  /?socks5=user:password@127.0.0.1:1080
+  /socks://dXNlcjpwYXNzd29yZA==@127.0.0.1:1080 (默认激活全局SOCKS5)
+  /socks5://user:password@127.0.0.1:1080 (默认激活全局SOCKS5)
+  ```
 
 - 指定 `HTTP代理` 案例
-   ```url
-   /http=user:password@127.0.0.1:1080
-   /http://user:password@127.0.0.1:8080 (默认激活全局SOCKS5)
-   ```
+  ```url
+  /http=user:password@127.0.0.1:1080
+  /http://user:password@127.0.0.1:8080 (默认激活全局SOCKS5)
+  ```
 
 ---
 
 ## 💻 客户端适配情况
 
-| 平台 | 推荐客户端 |
-| :--- | :--- |
-| **Windows** | [v2rayN](https://github.com/2dust/v2rayN/releases)、[Hiddify](https://github.com/hiddify/hiddify-app/releases)、[FlClash](https://github.com/chen08209/FlClash/releases)、[mihomo-party](https://github.com/mihomo-party-org/clash-party/releases)、[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)、[Clashmi](https://github.com/KaringX/clashmi/releases)、[FlyClash](https://github.com/GtxFury/FlyClash/releases)、[Karing](https://github.com/KaringX/karing/releases)、[Bettbox](https://github.com/appshubcc/Bettbox/releases) |
+| 平台        | 推荐客户端                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| :---------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Windows** | [v2rayN](https://github.com/2dust/v2rayN/releases)、[Hiddify](https://github.com/hiddify/hiddify-app/releases)、[FlClash](https://github.com/chen08209/FlClash/releases)、[mihomo-party](https://github.com/mihomo-party-org/clash-party/releases)、[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)、[Clashmi](https://github.com/KaringX/clashmi/releases)、[FlyClash](https://github.com/GtxFury/FlyClash/releases)、[Karing](https://github.com/KaringX/karing/releases)、[Bettbox](https://github.com/appshubcc/Bettbox/releases)  |
 | **Android** | [v2rayNG](https://github.com/2dust/v2rayNG/releases)、[ClashMetaForAndroid](https://github.com/MetaCubeX/ClashMetaForAndroid/releases/)、[FlClash](https://github.com/chen08209/FlClash/releases)、[Clashmi](https://github.com/KaringX/clashmi/releases)、[Hiddify](https://github.com/hiddify/hiddify-app/releases)、[NekoBox](https://github.com/MatsuriDayo/NekoBoxForAndroid/releases)、[FlyClash](https://github.com/GtxFury/FlyClash/releases)、[Karing](https://github.com/KaringX/karing/releases)、[Bettbox](https://github.com/appshubcc/Bettbox/releases) |
-| **iOS** | Surge、Shadowrocket、Stash、[Hiddify](https://github.com/hiddify/hiddify-app/releases)、Loon、Egern、[Clashmi](https://clashmi.app/download)、[Karing](https://karing.app/)、Quantumult X |
-| **macOS** | [FlClash](https://github.com/chen08209/FlClash/releases)、[mihomo-party](https://github.com/mihomo-party-org/clash-party/releases)、[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)、Surge、[Clashmi](https://clashmi.app/download)、[Karing](https://karing.app/)、[FlyClash](https://github.com/GtxFury/FlyClash/releases) |
-| **鸿蒙** | [ClashBox](https://github.com/xiaobaigroup/ClashBox/releases) |
+| **iOS**     | Surge、Shadowrocket、Stash、[Hiddify](https://github.com/hiddify/hiddify-app/releases)、Loon、Egern、[Clashmi](https://clashmi.app/download)、[Karing](https://karing.app/)、Quantumult X                                                                                                                                                                                                                                                                                                                                                                             |
+| **macOS**   | [FlClash](https://github.com/chen08209/FlClash/releases)、[mihomo-party](https://github.com/mihomo-party-org/clash-party/releases)、[Clash Verge Rev](https://github.com/clash-verge-rev/clash-verge-rev/releases)、Surge、[Clashmi](https://clashmi.app/download)、[Karing](https://karing.app/)、[FlyClash](https://github.com/GtxFury/FlyClash/releases)                                                                                                                                                                                                           |
+| **鸿蒙**    | [ClashBox](https://github.com/xiaobaigroup/ClashBox/releases)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+
 ---
 
-## ⭐ 项目热度
+## Deploy in linode
 
-[![Stargazers over time](https://starchart.cc/cmliu/edgetunnel.svg?variant=adaptive)](https://starchart.cc/cmliu/edgetunnel)
+Copy the script `./linode-setup-socks5.sh`
+
+```bash
+chmod +x linode-setup-socks5.sh
+./linode-setup-socks5.sh
+```
+
+自定义用户名、端口、密码
+
+```bash
+./linode-setup-socks5.sh edgeuser 1080 `YOUR_PASSWORD`
+```
 
 ---
 
 ## 🙏 特别鸣谢
+
 ### 💖 赞助支持 - 提供云服务器维持[订阅转换服务](https://sub.cmliussss.net/)
+
 - [Alice](https://url.cmliussss.com/alice)
 - [EasyLinks](https://www.vmrack.net?ref_code=5Zk7eNhbgL7)
 - [ZMTO(VTEXS)](https://zmto.com/?affid=1532)
 
 ### 🛠 开源代码引用
+
 - [zizifn/edgetunnel](https://github.com/zizifn/edgetunnel)
 - [3Kmfi6HP/EDtunnel](https://github.com/6Kmfi6HP/EDtunnel)
 - [SHIJS1999/cloudflare-worker-vless-ip](https://github.com/SHIJS1999/cloudflare-worker-vless-ip)
