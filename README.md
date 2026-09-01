@@ -177,19 +177,21 @@
 
 ---
 
-## Deploy in linode
+## Deploy in VPS
 
-Copy the script `./linode-setup-socks5.sh`
+> 支持 Linode、Digital Ocean
+
+Copy the script `./vps-setup-socks5.sh`
 
 ```bash
-chmod +x linode-setup-socks5.sh
-./linode-setup-socks5.sh
+chmod +x vps-setup-socks5.sh
+./vps-setup-socks5.sh
 ```
 
 自定义用户名、端口、密码
 
 ```bash
-./linode-setup-socks5.sh edgeuser 1080 `YOUR_PASSWORD`
+./vps-setup-socks5.sh edgeuser 1080 `YOUR_PASSWORD`
 ```
 
 ---
